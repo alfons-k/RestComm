@@ -1,5 +1,4 @@
 'use client';
-import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -41,7 +40,6 @@ export default function ProfilePageClient({
 }: {
   params: { id: string };
 }) {
-  const params = useParams();
   const id = Number(params.id);
   const profile = profiles[id];
 
@@ -250,12 +248,4 @@ export default function ProfilePageClient({
       <style>{`.wa-btn:hover { opacity: 0.88; transform: translateY(-1px); }`}</style>
     </div>
   );
-}
-
-export function generateStaticParams() {
-  return [
-    { id: "1" },
-    { id: "2" },
-    { id: "3" },
-  ];
 }
