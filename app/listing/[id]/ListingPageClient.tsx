@@ -15,7 +15,11 @@ const colorMap = {
   gold: { bg: 'var(--gold-pale)', accent: 'var(--gold)', label: '#D4A017', dark: '#A67C00' },
 };
 
-export default function ListingDetailPage() {
+export default function ListingPageClient({
+  params,
+}: {
+  params: { id: string };
+}) {
   const params = useParams();
   const id = Number(params.id);
   const listing = listings.find(l => l.id === id);
