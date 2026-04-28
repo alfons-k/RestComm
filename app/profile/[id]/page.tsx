@@ -1,13 +1,25 @@
 import ProfilePageClient from "./ProfilePageClient";
 
+import ProfilePageClient from "./ProfilePageClient";
+
 export function generateStaticParams() {
-  return [{ id: "1" }, { id: "2" }, { id: "3" }];
+  return [
+    { id: "1" },
+    { id: "2" },
+    { id: "3" },
+    { id: "4" },
+    { id: "5" },
+    { id: "6" },
+    { id: "7" },
+  ];
 }
 
-export default function ProfilePage({
+export default async function ProfilePage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  return <ProfilePageClient params={params} />;
+  const resolvedParams = await params;
+
+  return <ProfilePageClient params={resolvedParams} />;
 }
