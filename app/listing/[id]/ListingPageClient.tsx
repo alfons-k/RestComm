@@ -1,5 +1,4 @@
 'use client';
-import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -20,7 +19,6 @@ export default function ListingPageClient({
 }: {
   params: { id: string };
 }) {
-  const params = useParams();
   const id = Number(params.id);
   const listing = listings.find(l => l.id === id);
   const related = listings.filter(l => l.id !== id && l.category === listing?.category).slice(0, 3);
@@ -270,10 +268,4 @@ export default function ListingPageClient({
     </div>
   );
 }
-export function generateStaticParams() {
-  return [
-    { id: "1" },
-    { id: "2" },
-    { id: "3" },
-  ];
 }
