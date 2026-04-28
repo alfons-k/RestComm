@@ -36,7 +36,11 @@ const colorMap = {
   gold: { bg: 'var(--gold-pale)', accent: 'var(--gold)', label: '#D4A017', hero: 'linear-gradient(135deg, #D4A017 0%, #A67C00 100%)' },
 };
 
-export default function ProfilePage() {
+export default function ProfilePageClient({
+  params,
+}: {
+  params: { id: string };
+}) {
   const params = useParams();
   const id = Number(params.id);
   const profile = profiles[id];
