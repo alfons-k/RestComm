@@ -1,13 +1,23 @@
 import ListingPageClient from "./ListingPageClient";
 
 export function generateStaticParams() {
-  return [{ id: "1" }, { id: "2" }, { id: "3" }];
+  return [
+    { id: "1" },
+    { id: "2" },
+    { id: "3" },
+    { id: "4" },
+    { id: "5" },
+    { id: "6" },
+    { id: "7" },
+  ];
 }
 
-export default function ListingPage({
+export default async function ListingPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  return <ListingPageClient params={params} />;
+  const resolvedParams = await params;
+
+  return <ListingPageClient params={resolvedParams} />;
 }
